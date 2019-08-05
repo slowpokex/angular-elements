@@ -2,9 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Injector } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
 
-import { NgCustomElementComponent } from './ng-custom-element/ng-custom-element.component';
-import { NgDefaultElementComponent } from './ng-default-element/ng-default-element.component';
-import { NgSecondElementComponent } from './ng-second-element/ng-second-element.component';
+import { NgCustomElementComponent } from './components/ng-custom-element/ng-custom-element.component';
+import { NgDefaultElementComponent } from './components/ng-default-element/ng-default-element.component';
+import { NgSecondElementComponent } from './components/ng-second-element/ng-second-element.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import { NgSecondElementComponent } from './ng-second-element/ng-second-element.
 export class AppModule {
   constructor(private injector: Injector) {}
 
-  ngDoBootstrap() {
+  public ngDoBootstrap(): void {
     const CUSTOM_ELEMENT_MAP = {
       'custom-element': createCustomElement(NgCustomElementComponent, { injector: this.injector }),
       'default-element': createCustomElement(NgDefaultElementComponent, { injector: this.injector }),
